@@ -128,4 +128,27 @@ const updateTask = (req, res) => {
   res.status(200).json(task);
 };
 
-export { getAllTasks, getTaskById, addTask, updateTask };
+/**
+ * DELETE /api/tasks/:id
+ * Deletes a task by id
+ */
+const deleteTask = (req, res) => {
+  const id = Number(req.params.id);
+
+  const taskIndex = tasks.findIndex((task) => task.id === id);
+
+  if (taskIndex === -1) {
+    return res.status(404).json({
+      error: "Task not found",
+    });
+  }
+
+  const deletedTask = tasks.splice(taskIndex, 1)[0];
+
+  res.status(200).json({
+    message: "Task deleted successfully",
+    task: deletedTask,
+  });
+};
+
+export { getAllTasks, getTaskById, addTask, updateTask, deleteTask };
