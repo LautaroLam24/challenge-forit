@@ -21,7 +21,7 @@ const getAllTasks = (req, res) => {
  * Returns a task by id
  */
 const getTaskById = (req, res) => {
-  const id = Number(req.params.id);
+  const id = req.params.id;
   const task = tasks.find((task) => task.id === id);
 
   if (!task) {
@@ -79,7 +79,7 @@ const addTask = (req, res, next) => {
  */
 const updateTask = (req, res, next) => {
   try {
-    const id = Number(req.params.id);
+    const id = req.params.id;
     const { title, description, completed } = req.body;
 
     if (
@@ -142,7 +142,7 @@ const updateTask = (req, res, next) => {
  */
 const deleteTask = (req, res, next) => {
   try {
-    const id = Number(req.params.id);
+    const id = req.params.id;
 
     const taskIndex = tasks.findIndex((task) => task.id === id);
 
