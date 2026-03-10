@@ -2,6 +2,13 @@ import tasks from "../data/tasks.js";
 import createTask from "../utils/createTask.js";
 
 /**
+ *  Helper function to find a task by id
+ */
+const findTaskById = (id) => {
+  return tasks.find((task) => task.id === id);
+};
+
+/**
  * GET /api/tasks
  * Returns all tasks
  */
@@ -62,4 +69,63 @@ const addTask = (req, res) => {
   res.status(201).json(newTask);
 };
 
-export { getAllTasks, getTaskById, addTask };
+/**
+ * PUT /api/tasks/:id
+ * Updates an existing task
+ */
+const updateTask = (req, res) => {
+  const id = Number(req.params.id);
+  const { title, description, completed } = req.body;
+
+  if (
+    title === undefined &&
+    description === undefined &&
+    completed === undefined
+  ) {
+    return res.status(400).json({
+      error: "At least one field must be provided to update",
+    });
+  }
+
+  const task = findTaskById(id);
+
+  if (!task) {
+    return res.status(404).json({
+      error: "Task not found",
+    });
+  }
+
+  if (title !== undefined) {
+    if (typeof title !== "string" || title.trim() === "") {
+      return res.status(400).json({
+        error: "Title cannot be empty",
+      });
+    }
+  }
+
+  task.title = title.trim();
+
+  if (description !== undefined) {
+    if (typeof title != "string" || title.trim() === "") {
+      return res.status(400).json({
+        error: "Description cannot be empty",
+      });
+    }
+  }
+
+  task.description = description.trim();
+
+  if (completed !== undefined) {
+    if (typeof completed !== "boolean") {
+      return res.status(400).json({
+        error: "Completed must be boolean",
+      });
+    }
+  }
+
+  task.completed = completed;
+
+  res.status(200).json(task);
+};
+
+export { getAllTasks, getTaskById, addTask, updateTask };
