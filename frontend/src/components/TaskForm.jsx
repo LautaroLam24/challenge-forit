@@ -6,8 +6,6 @@ function TaskForm({
   onSubmit,
   onCancel,
 }) {
-  const canSubmit = form.title.trim() && form.description.trim();
-
   return (
     <section className="panel">
       <h2>{isEditing ? "Edit task" : "Add task"}</h2>
@@ -56,7 +54,7 @@ function TaskForm({
         <div className="actions">
           <button
             type="submit"
-            disabled={loading || (!isEditing && !canSubmit)}
+            disabled={loading}
           >
             {isEditing ? "Update" : "Create task"}
           </button>
