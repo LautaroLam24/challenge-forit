@@ -22,7 +22,7 @@ const getAllTasks = (req, res) => {
  */
 const getTaskById = (req, res) => {
   const id = req.params.id;
-  const task = tasks.find((task) => task.id === id);
+  const task = findTaskById(id);
 
   if (!task) {
     return res.status(404).json({
