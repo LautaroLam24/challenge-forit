@@ -54,8 +54,13 @@ function TasksPage() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.title.trim() || !form.description.trim()) {
-      setError("Title and description are required");
+    if (!form.title || form.title.trim() === "") {
+      setError("The title entered must not be empty!");
+      return;
+    }
+
+    if (!form.description || form.description.trim() === "") {
+      setError("The description entered must not be empty");
       return;
     }
 
@@ -151,7 +156,6 @@ function TasksPage() {
     <div className="app">
       <header className="app-header">
         <h1>Task Manager</h1>
-        <p className="subtitle">Simple CRUD with React & Express</p>
       </header>
 
       <main className="app-content">
