@@ -8,19 +8,21 @@ This application allows users to create, read, update, and delete tasks. Tasks h
 
 ## Technologies used
 
-- **Frontend:** React 19, Vite 7, React Router DOM, CSS
-- **Backend:** Node.js, Express 5, CORS, dotenv
+- **Frontend:** React, Vite, React Router DOM, CSS
+- **Backend:** Node.js, Express, CORS, dotenv
 - **Storage:** In-memory array (no database)
 
 ## Installation
 
 1. Clone the repository:
+
    ```bash
-   git clone <repository-url>
-   cd Challenge-ForIt
+   git clone https://github.com/LautaroLam24/challenge-forit.git
+   cd challenge-forit
    ```
 
 2. Install backend dependencies:
+
    ```bash
    cd backend
    npm install
@@ -63,30 +65,36 @@ npm run dev
 
 The app will be available at the URL shown in the terminal (usually `http://localhost:5173`). Set `VITE_API_URL` in a `.env` file if your API runs on a different URL (e.g. `VITE_API_URL=http://localhost:3000/api`).
 
+## Features
+
+- Create tasks
+- Edit tasks
+- Delete tasks
+- Mark tasks as completed
+- Search tasks by title
+- Filter tasks (all / completed / pending)
+- Form validation
+
 ## Screenshots
 
-For a good README, **2–4 screenshots** are enough: the main view plus one or two that show a clear feature (e.g. validation or filters). You don’t need one for every action.
-
-**Suggested captures:**
-
-| # | What to capture | Why |
-|---|-----------------|-----|
-| 1 | **Main view** – Full screen with "Add task" form on the left and task list on the right (search bar and All / Completed / Pending visible). | Shows the app at a glance and that CRUD + search + filters exist. |
-| 2 | **Validation** – Same view with empty title/description, after clicking "Create task", with the error message visible (e.g. "The title entered must not be empty!"). | Shows backend validation is wired in the UI. |
-| 3 | *(Optional)* **Edit** – Form in "Edit task" mode with a task loaded, or list with a mix of Completed/Pending so filters are obvious. | Reinforces edit flow or filter behavior. |
-
-**How to add the images:**
-
-1. Create a folder in the repo for images, for example `screenshots/` or `docs/images/`.
-2. Save your captures there (e.g. `main-view.png`, `validation.png`).
-3. Reference them in the README like this:
-
-```markdown
 ### Main view
+
 ![Task Manager - Main view](screenshots/main-view.png)
 
-### Validation (empty title/description)
-![Task Manager - Validation](screenshots/validation.png)
-```
+### Validation (empty fields)
 
-Use the names and paths that match your files. One main screenshot is already enough for most reviewers; the second (validation) adds clarity without overdoing it.
+![Task Manager - Validation](screenshots/validation.png)
+
+### Search tasks
+
+![Task Manager - Search](screenshots/search.png)
+
+### Edit task
+
+![Task Manager - Edit](screenshots/edit-task.png)
+
+## Author
+
+**Lautaro Lamaita**
+
+- GitHub: https://github.com/LautaroLam24
